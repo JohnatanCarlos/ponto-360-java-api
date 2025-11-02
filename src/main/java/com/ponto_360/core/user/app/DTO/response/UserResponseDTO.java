@@ -18,9 +18,11 @@ public class UserResponseDTO {
     private String phone;
     private LocalDate dateBirthday;
     private String role;
-    private int dailyHours;
-    private LocalTime startTime;
-    private LocalTime endTime;
+
+    private String avatar;
+//    private int dailyHours;
+//    private LocalTime startTime;
+//    private LocalTime endTime;
 
     public UserResponseDTO(User user) {
         this.fullName = user.getFullName();
@@ -28,6 +30,7 @@ public class UserResponseDTO {
         this.email = user.getEmail();
         this.phone = user.getPhone();
         this.dateBirthday = user.getDateBirthday();
+        this.avatar = user.getAvatar();
         //this.dailyHours =  user.getDa;
         //this.startTime =  user.startTime;
         //this.endTime =  user.endTime;

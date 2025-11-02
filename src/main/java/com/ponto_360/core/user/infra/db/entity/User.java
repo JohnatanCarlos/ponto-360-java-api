@@ -25,13 +25,8 @@ public class User {
     private String password;
     private String role;
     private String avatar;
-
-    @Builder.Default
     private LocalDateTime createAt = LocalDateTime.now();
-
     private LocalDateTime updateAt;
-
-    @Builder.Default
     private boolean isActive = true;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)

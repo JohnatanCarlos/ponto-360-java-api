@@ -1,11 +1,14 @@
 package com.ponto_360.core.user.infra.db.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
 
+@Data
 @Entity
 @Table(name = "users_work_schedules")
 public class UserWorkSchedule {
