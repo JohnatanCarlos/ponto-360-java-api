@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface UserService {
     UserResponseDTO save(UserRequestDTO request);
 
-    List< UserResponseDTO > getAll();
+    List<UserResponseDTO> getAll(String name, String cpf);
 
     UserResponseDTO getByCpf(String cpf);
 

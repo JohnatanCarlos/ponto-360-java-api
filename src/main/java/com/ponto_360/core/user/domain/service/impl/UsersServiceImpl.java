@@ -39,8 +39,8 @@ public class UsersServiceImpl implements UserService {
     }
 
     @Override
-    public List< UserResponseDTO > getAll() {
-        return userMapper.toResponseList(userRepository.findAll());
+    public List<UserResponseDTO> getAll(String name, String cpf) {
+        return userMapper.toResponseList(userRepository.findAllFilter(name, cpf));
     }
 
     @Override

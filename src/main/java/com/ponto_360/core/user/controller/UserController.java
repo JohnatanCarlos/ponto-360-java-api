@@ -5,6 +5,7 @@ import com.ponto_360.core.user.app.DTO.request.UserRequestDTO;
 import com.ponto_360.core.user.app.DTO.response.UserResponseDTO;
 import com.ponto_360.core.user.domain.service.UserService;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,13 +21,13 @@ public class UserController {
     UserService userService;
 
     @PostMapping
-    public Response<UserResponseDTO> save(@RequestBody UserRequestDTO request) {
+    public Response<UserResponseDTO> save(@RequestBody @Valid UserRequestDTO request) {
         return new Response<>(userService.save(request));
     }
 
     @GetMapping
-    public Response<List < UserResponseDTO > > getAll() {
-        List <UserResponseDTO> users = userService.getAll();
+    public Response<List<UserResponseDTO>> getAll(@RequestParam(value = "name", required = false) String name,  @RequestParam(value = "cpf", required = false) String cpf) {
+        List <UserResponseDTO> users = userService.getAll(name, cpf);
         return new Response<>( users, users.size() );
     }
 
@@ -35,8 +36,8 @@ public class UserController {
         return new Response<>(userService.getByCpf(cpf));
     }
 
-    @PutMapping
-    public Response<UserResponseDTO> update(@RequestParam String cpf, @RequestBody UserRequestDTO request) {
+    @PutMapping(value = "/{cpf}")
+    public Response<UserResponseDTO> update(@PathVariable String cpf, @RequestBody UserRequestDTO request) {
         return new Response<>(userService.update(cpf, request));
     }
 
