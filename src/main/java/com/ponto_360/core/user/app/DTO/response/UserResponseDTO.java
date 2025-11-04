@@ -20,9 +20,9 @@ public class UserResponseDTO {
     private String role;
 
     private String avatar;
-//    private int dailyHours;
-//    private LocalTime startTime;
-//    private LocalTime endTime;
+    private int dailyHours;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
     public UserResponseDTO(User user) {
         this.fullName = user.getFullName();
@@ -31,9 +31,9 @@ public class UserResponseDTO {
         this.phone = user.getPhone();
         this.dateBirthday = user.getDateBirthday();
         this.avatar = user.getAvatar();
-        //this.dailyHours =  user.getDa;
-        //this.startTime =  user.startTime;
-        //this.endTime =  user.endTime;
+        this.dailyHours = user.getUserWorkSchedule().getDailyHours();
+        this.startTime = user.getUserWorkSchedule().getStartTime();
+        this.endTime = user.getUserWorkSchedule().getEndTime();
         this.role = user.getRole();
     }
 }

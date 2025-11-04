@@ -1,5 +1,6 @@
 package com.ponto_360.core.user.domain.service.impl;
 
+import com.ponto_360.core.common.exception.UserAlreadyExistsException;
 import com.ponto_360.core.user.app.DTO.request.UserRequestDTO;
 import com.ponto_360.core.user.app.DTO.response.UserResponseDTO;
 import com.ponto_360.core.user.domain.service.UserService;
@@ -26,6 +27,11 @@ public class UsersServiceImpl implements UserService {
 
     @Transactional
     public UserResponseDTO save(UserRequestDTO requestDTO) {
+        User hasUser = userRepository.findByCpf(requestDTO.getCpf());
+        if(hasUser != null){
+            throw new UserAlreadyExistsException("User already exists");
+        }
+
         UserWorkSchedule userWorkSchedule = new UserWorkSchedule();
         userWorkSchedule.setDailyHours(requestDTO.getDailyHours());
         userWorkSchedule.setStartTime(requestDTO.getStartTime());

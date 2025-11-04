@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @ToString
 @NoArgsConstructor
@@ -15,7 +17,7 @@ public class Response< T > {
 
     private T body;
     private Integer recordsCount;
-    //    private List< ErrorResponse > errors;
+    private List<ErrorResponseDTO> errors;
     private String traceId;
 
     public Response( T body ) {
