@@ -11,13 +11,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class TimeClockRequestDTO {
-    @NotBlank(message = "CPF is required")
+    @NotBlank(message = "CPF é obrigatório")
     private String cpf;
 
     @NotNull
     private LocalDateTime timestamp;
 
-    @NotNull(message = "Record type is required")
+    @NotNull(message = "Tipo de registro é obrigatório")
     private RecordType type;
 
     private String location;

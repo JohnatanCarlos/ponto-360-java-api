@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/timeclock")
+@RequestMapping(value = "/timeclocks")
 @RequiredArgsConstructor
 public class TimeClockController {
     @Inject
