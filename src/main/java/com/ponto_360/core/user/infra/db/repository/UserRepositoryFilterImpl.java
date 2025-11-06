@@ -29,7 +29,10 @@ public class UserRepositoryFilterImpl implements UserRepositoryFilter {
         }
 
         if (StringUtils.hasText(cpf)) {
-            predicates.add(cb.equal(user.get("cpf"), cpf));
+            Expression<String> cpfLower = cb.lower(user.get("cpf"));
+            String cpfSearch = "%" + cpf.toLowerCase() + "%";
+
+            predicates.add(cb.like(cpfLower, cpfSearch));
         }
 
         query.where(predicates.toArray(new Predicate[0]));
