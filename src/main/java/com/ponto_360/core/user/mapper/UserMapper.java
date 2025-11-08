@@ -21,9 +21,7 @@ public class UserMapper {
                 .email(request.getEmail())
                 .phone(request.getPhone())
                 .dateBirthday(request.getDateBirthday())
-                .password(request.getPassword())
                 .role(request.getRole())
-                .avatar(request.getAvatar())
                 .build();
     }
 

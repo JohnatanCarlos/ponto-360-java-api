@@ -26,8 +26,6 @@ public class UserRequestDTO {
     @Past(message = "Data de nascimento deve ser uma data passada")
     private LocalDate dateBirthday;
 
-    @NotBlank(message = "Senha é obrigatório")
-    @Size(min = 6, message = "Senha deve ter pelo menos 6 caracteres")
     private String password;
 
     private String role;

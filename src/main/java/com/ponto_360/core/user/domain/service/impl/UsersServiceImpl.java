@@ -19,6 +19,9 @@ import java.util.List;
 @Service
 @Primary
 public class UsersServiceImpl implements UserService {
+    private static final String DEFAULT_PASSWORD_HASHED = "123456";
+    private static final String DEFAULT_AVATAR = "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png";
+
     @Inject
     UserMapper userMapper;
 
@@ -38,6 +41,8 @@ public class UsersServiceImpl implements UserService {
         userWorkSchedule.setEndTime(requestDTO.getEndTime());
 
         User user = userMapper.toEntity(requestDTO);
+        user.setPassword(DEFAULT_PASSWORD_HASHED);
+        user.setAvatar(DEFAULT_AVATAR);
         user.setUserWorkSchedule(userWorkSchedule);
 
         userWorkSchedule.setUser(user);
