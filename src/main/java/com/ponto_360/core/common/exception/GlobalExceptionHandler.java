@@ -1,8 +1,8 @@
 // java
 package com.ponto_360.core.common.exception;
 
-import com.ponto_360.core.common.DTO.ErrorResponse;
-import com.ponto_360.core.common.DTO.ErrorResponseDTO;
+import com.ponto_360.core.common.DTO.response.ErrorResponse;
+import com.ponto_360.core.common.DTO.response.ErrorResponseDTO;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;

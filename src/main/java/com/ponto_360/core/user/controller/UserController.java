@@ -1,6 +1,6 @@
 package com.ponto_360.core.user.controller;
 
-import com.ponto_360.core.common.DTO.Response;
+import com.ponto_360.core.common.DTO.response.Response;
 import com.ponto_360.core.user.app.DTO.request.UserRequestDTO;
 import com.ponto_360.core.user.app.DTO.response.UserResponseDTO;
 import com.ponto_360.core.user.domain.service.UserService;

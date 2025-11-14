@@ -27,10 +27,7 @@ public class TimeClockServiceImpl implements TimeClockService {
 
     @Transactional
     public void saveRecord(TimeClockRequestDTO timeClockRequestDTO) {
-        User user = userRepository.findByCpf(timeClockRequestDTO.getCpf());
-        if(user == null){
-            throw new RuntimeException("User not found");
-        }
+        User user = userRepository.findByCpf(timeClockRequestDTO.getCpf()).orElseThrow(() -> new RuntimeException("User not found"));
 
         TimeClockRecord timeClockRecord = timeClockMapper.toEntity(timeClockRequestDTO, user.getId());
         timeClockRecord.setUser(user);

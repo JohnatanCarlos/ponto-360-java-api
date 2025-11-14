@@ -1,4 +1,4 @@
-package com.ponto_360.core.common.DTO;
+package com.ponto_360.core.common.DTO.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
